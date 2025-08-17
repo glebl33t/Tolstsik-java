@@ -21,7 +21,7 @@ public class LoginTest {
     }
 
     @Test
-    public void test1(){
+    public void test1() {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.openSite();
         loginPage.clickLogOut();
@@ -30,7 +30,7 @@ public class LoginTest {
         loginPage.clickEnter();
         loginPage.getTextErrorMessage();
 
-        Assertions.assertEquals("Неверный телефон или пароль. Если забыли пароль, восстановите его",loginPage.getTextErrorMessage());
+        Assertions.assertEquals("Неверный телефон или пароль. Если забыли пароль, восстановите его", loginPage.getTextErrorMessage());
     }
 
     @AfterEach

@@ -17,26 +17,26 @@ public class LoginPage {
     private final String ERROR_MESSAGE = "//div[@class='error-message']";
     private WebDriver driver;
 
-    public LoginPage(WebDriver webDriver){
+    public LoginPage(WebDriver webDriver) {
         driver = webDriver;
     }
 
-    public void openSite(){
+    public void openSite() {
         driver.get(URL);
     }
 
-    public void clickLogOut(){
+    public void clickLogOut() {
         WebElement logOut = driver.findElement(By.xpath(LOGOUT));
         logOut.click();
     }
 
-    public void clickAuthPhone(){
+    public void clickAuthPhone() {
         WebElement authPhone = driver.findElement(By.xpath(AUTH_PHONE));
         authPhone.click();
         authPhone.sendKeys("445556677");
     }
 
-    public void clickPasswordPhone(){
+    public void clickPasswordPhone() {
         WebElement passwordPhone = driver.findElement(By.xpath(PASSWORD_PHONE));
         passwordPhone.click();
         passwordPhone.sendKeys("qwerty12345");
@@ -47,7 +47,7 @@ public class LoginPage {
         return errorMessage.getText();
     }
 
-    public void clickEnter(){
+    public void clickEnter() {
         WebElement enter = driver.findElement(By.xpath(ENTER));
         enter.click();
     }

@@ -8,10 +8,10 @@ public class LoginPage {
     private final String URL = "https://travel.yandex.ru/";
     private final String SIGN_IN = "//a[@class='WvMZr mR5dx jNuum button_width_auto g2AoF']";
     private final String INPUT_LOGIN_EMAIL = "//input[@data-t='field:input-login']";
-    private final String BUTTON_SWITCH_TO_PHONE = "//button[@class=\"Button2 Button2_size_l Button2_view_clear\"]";
-    private final String INPUT_LOGIN_PHONE = "//input[@id=\"passp-field-phone\"]";
+    private final String BUTTON_SWITCH_TO_PHONE = "//button[@class='Button2 Button2_size_l Button2_view_clear']";
+    private final String INPUT_LOGIN_PHONE = "//input[@id='passp-field-phone']";
     private final String BUTTON_ENTER = "//button[@id='passp:sign-in']";
-    private final String INPUT_ENTER_PHONE = "//input[@id=\"passp-field-phone\"]";
+    private final String INPUT_ENTER_PHONE = "//input[@id='passp-field-phone']";
 
     private WebDriver driver;
 

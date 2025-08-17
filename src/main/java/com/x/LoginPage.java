@@ -11,26 +11,26 @@ public class LoginPage {
     private final String ENTER_LOGIN = "//body/div/div/div/div[1]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div/div/div/button[2]/div";
     private WebDriver driver;
 
-    public LoginPage(WebDriver webDriver){
+    public LoginPage(WebDriver webDriver) {
         driver = webDriver;
     }
 
-    public void openSite(){
+    public void openSite() {
         driver.get(URL);
     }
 
-    public void clickSignIn(){
+    public void clickSignIn() {
         WebElement signIn = driver.findElement(By.xpath(SING_IN));
         signIn.click();
     }
 
-    public void clickInputLogin(){
+    public void clickInputLogin() {
         WebElement inputLogin = driver.findElement(By.xpath(INPUT_LOGIN));
         inputLogin.click();
         inputLogin.sendKeys("375331234567");
     }
 
-    public void clickEnterLogin(){
+    public void clickEnterLogin() {
         WebElement enterLogin = driver.findElement(By.xpath(ENTER_LOGIN));
         enterLogin.click();
     }

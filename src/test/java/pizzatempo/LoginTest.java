@@ -9,7 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class LoginTest {
     @Test
-    public void testLogin1(){
+    public void testLogin1() {
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://www.pizzatempo.by/");

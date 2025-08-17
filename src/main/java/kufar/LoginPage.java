@@ -20,7 +20,7 @@ public class LoginPage {
         driver = webDriver;
     }
 
-    public void clickButtonCookie(){
+    public void clickButtonCookie() {
         WebElement buttonCookie = driver.findElement(By.xpath(COOKIE));
         buttonCookie.click();
     }

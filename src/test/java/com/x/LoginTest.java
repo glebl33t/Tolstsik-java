@@ -19,7 +19,7 @@ public class LoginTest {
     }
 
     @Test
-    public void test1(){
+    public void test1() {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.openSite();
         loginPage.clickSignIn();

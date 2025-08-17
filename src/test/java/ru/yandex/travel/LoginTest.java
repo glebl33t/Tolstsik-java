@@ -20,7 +20,7 @@ public class LoginTest {
     }
 
     @Test
-    public void testLoginEmail(){
+    public void testLoginEmail() {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.openSite();
         loginPage.clickSignIn();
@@ -29,7 +29,7 @@ public class LoginTest {
     }
 
     @Test
-    public void testLoginPhone(){
+    public void testLoginPhone() {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.openSite();
         loginPage.clickSignIn();

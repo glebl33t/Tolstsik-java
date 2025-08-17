@@ -14,6 +14,7 @@ public class LoginPage {
     private final String BUTTON_AUTH = "//button [@class='styles_button__oKUgO styles_outline__maWFU styles_size-m__NgAcw']";
     private final String INPUT_LOGIN = "//input[@id='login']";
     private final String INPUT_PASSWORD = "//input[@id='password']";
+    private final String BUTTON_ENTER = "(//button[contains(@class, 'styles_button') and text()='Войти'])[2]";
     private WebDriver driver;
 
     public LoginPage(WebDriver webDriver) {
@@ -40,6 +41,11 @@ public class LoginPage {
         WebElement inputPassword = driver.findElement(By.xpath(INPUT_PASSWORD));
         inputPassword.click();
         inputPassword.sendKeys("qwerty12345");
+    }
+
+    public void clickButtonEnter() {
+        WebElement buttonEnter = driver.findElement(By.xpath(BUTTON_ENTER));
+        buttonEnter.click();
     }
 
     public void openSite() {

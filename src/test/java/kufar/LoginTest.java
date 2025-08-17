@@ -27,6 +27,7 @@ public class LoginTest {
         loginPage.clickButtonAuth();
         loginPage.clickInputLogin();
         loginPage.clickInputPassword();
+        loginPage.clickButtonEnter();
     }
 
     @Test
@@ -37,6 +38,7 @@ public class LoginTest {
         loginPage.clickButtonAuth();
         loginPage.clickInputLogin();
         loginPage.clickInputPassword();
+        loginPage.clickButtonEnter();
         loginPage.getErrorAuthText();
 
         Assertions.assertEquals("Введен неверный пароль либо такого профиля не существует", loginPage.getErrorAuthText());

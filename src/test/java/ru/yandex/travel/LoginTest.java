@@ -16,17 +16,28 @@ public class LoginTest {
     public void setup() {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
 
     @Test
-    public void testLogin(){
+    public void testLoginEmail(){
         LoginPage loginPage = new LoginPage(driver);
         loginPage.openSite();
         loginPage.clickSignIn();
-        loginPage.clickButtonLogin();
-        loginPage.clickButtonEnter();
+        loginPage.clickLoginEmail();
+        loginPage.clickButtonEnterEmail();
     }
+
+    @Test
+    public void testLoginPhone(){
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.openSite();
+        loginPage.clickSignIn();
+        loginPage.clickButtonSwitchToPhone();
+        loginPage.clickLoginPhone();
+        loginPage.clickButtonEnterPhone();
+    }
+
 
     @AfterEach
     public void tearDown() {

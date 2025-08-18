@@ -21,7 +21,7 @@ public class LoginTest {
     }
 
     @Test
-    public void test1() {
+    public void testLogin() {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.openSite();
         loginPage.clickLogOut();

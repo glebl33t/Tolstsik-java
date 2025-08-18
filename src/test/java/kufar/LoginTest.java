@@ -33,12 +33,7 @@ public class LoginTest {
     @Test
     public void test2() {
         LoginPage loginPage = new LoginPage(driver);
-        loginPage.openSite();
-        loginPage.clickButtonCookie();
-        loginPage.clickButtonAuth();
-        loginPage.clickInputLogin();
-        loginPage.clickInputPassword();
-        loginPage.clickButtonEnter();
+        testSingIn();
         loginPage.getErrorAuthText();
 
         Assertions.assertEquals("Введен неверный пароль либо такого профиля не существует", loginPage.getErrorAuthText());

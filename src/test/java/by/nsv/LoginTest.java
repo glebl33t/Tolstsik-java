@@ -7,12 +7,6 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void testHeaderText() {
-        HomePage homePage = new HomePage(driver);
-        homePage.openSite();
-        homePage.clickCloseBanner();
-        homePage.clickAcceptCookie();
-        homePage.clickPersonalLink();
-
         LoginPage loginPage = new LoginPage(driver);
 
         Assertions.assertEquals("Личный кабинет", loginPage.getTextHeaderFormTitle());

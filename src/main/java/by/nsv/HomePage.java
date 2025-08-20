@@ -8,7 +8,7 @@ public class HomePage {
     private final String PERSONAL_LINK = "//header//a[@data-name='auth']";
     private final String COOKIE_ACCEPT = "//a[@id='paloma_cookie-accept']";
     private final String CLOSE_BANNER = "//div[@class='modal_game_width_close']";
-    private WebDriver driver;
+    private final WebDriver driver;
 
     HomePage(WebDriver webDriver) {
         driver = webDriver;
@@ -27,6 +27,10 @@ public class HomePage {
     }
 
     public void clickPersonalLink() {
-        driver.findElement(By.xpath(PERSONAL_LINK)).click();
+        try {
+            driver.findElement(By.xpath(PERSONAL_LINK)).click();
+        } catch (Exception e) {
+            System.out.println("Banner not found");
+        }
     }
 }

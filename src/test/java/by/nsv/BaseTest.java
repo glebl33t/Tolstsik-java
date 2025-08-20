@@ -16,6 +16,12 @@ public class BaseTest {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
+
+        HomePage homePage = new HomePage(driver);
+        homePage.openSite();
+        homePage.clickCloseBanner();
+        homePage.clickAcceptCookie();
+        homePage.clickPersonalLink();
     }
 
     @AfterEach

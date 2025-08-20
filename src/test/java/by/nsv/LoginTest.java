@@ -20,12 +20,6 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void loginTestWithFullArgs() {
-        HomePage homePage = new HomePage(driver);
-        homePage.openSite();
-        homePage.clickCloseBanner();
-        homePage.clickAcceptCookie();
-        homePage.clickPersonalLink();
-
         LoginPage loginPage = new LoginPage(driver);
         loginPage.sendKeysUserLogin("admin123456");
         loginPage.sendKeysUserPassword("qwerty123456");
@@ -36,12 +30,6 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void loginTestWithLoginAndEmptyPassword() {
-        HomePage homePage = new HomePage(driver);
-        homePage.openSite();
-        homePage.clickCloseBanner();
-        homePage.clickAcceptCookie();
-        homePage.clickPersonalLink();
-
         LoginPage loginPage = new LoginPage(driver);
         loginPage.sendKeysUserLogin("admin123456");
         loginPage.clickButtonLogin();
@@ -51,12 +39,6 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void loginTestWithEmptyLoginAndPasswordMoreSixSymbols() {
-        HomePage homePage = new HomePage(driver);
-        homePage.openSite();
-        homePage.clickCloseBanner();
-        homePage.clickAcceptCookie();
-        homePage.clickPersonalLink();
-
         LoginPage loginPage = new LoginPage(driver);
         loginPage.sendKeysUserPassword("qwerty123456");
         loginPage.clickButtonLogin();
@@ -66,15 +48,9 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void loginTestWithFullLoginAndPasswordLessSixSymbols() {
-        HomePage homePage = new HomePage(driver);
-        homePage.openSite();
-        homePage.clickCloseBanner();
-        homePage.clickAcceptCookie();
-        homePage.clickPersonalLink();
-
         LoginPage loginPage = new LoginPage(driver);
         loginPage.sendKeysUserLogin("admin123456");
-        loginPage.sendKeysUserPassword("qwe");
+        loginPage.sendKeysUserPassword(Passwords.generateRandomPassword(5));
         loginPage.clickButtonLogin();
 
         Assertions.assertEquals("Минимум 6 символов", loginPage.getTextErrorPassword());

@@ -1,6 +1,7 @@
 package by.nsv;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class LoginTest extends BaseTest {
@@ -13,6 +14,7 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
+    @DisplayName("Авторизация со всеми параметрами")
     public void loginTestWithFullArgs() {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.sendKeysUserLogin("admin123456");
@@ -23,6 +25,7 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
+    @DisplayName("Авторизация с логином и пустым паролем")
     public void loginTestWithLoginAndEmptyPassword() {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.sendKeysUserLogin("admin123456");
@@ -32,6 +35,7 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
+    @DisplayName("Авторизация с логином и паролем больше 6 символов")
     public void loginTestWithEmptyLoginAndPasswordMoreSixSymbols() {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.sendKeysUserPassword("qwerty123456");
@@ -41,6 +45,7 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
+    @DisplayName("Авторизация с логином и паролем меньше 6 символов")
     public void loginTestWithFullLoginAndPasswordLessSixSymbols() {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.sendKeysUserLogin("admin123456");

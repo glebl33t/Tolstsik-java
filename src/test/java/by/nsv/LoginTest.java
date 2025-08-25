@@ -1,5 +1,8 @@
 package by.nsv;
 
+import by.nsv.pages.HomePage;
+import by.nsv.pages.LoginPage;
+import by.nsv.utils.Passwords;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -8,7 +11,13 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void testHeaderText() {
-        LoginPage loginPage = new LoginPage(driver);
+        LoginPage loginPage = new LoginPage();
+        HomePage homePage = new HomePage();
+
+        homePage.openSite();
+        homePage.closeBanner()
+                .closeCookie()
+                .clickPersonalLink();
 
         Assertions.assertEquals("Личный кабинет", loginPage.getTextHeaderFormTitle());
     }
@@ -16,7 +25,13 @@ public class LoginTest extends BaseTest {
     @Test
     @DisplayName("Авторизация со всеми параметрами")
     public void loginTestWithFullArgs() {
-        LoginPage loginPage = new LoginPage(driver);
+        HomePage homePage = new HomePage();
+        homePage.openSite();
+        homePage.closeBanner()
+                .closeCookie()
+                .clickPersonalLink();
+
+        LoginPage loginPage = new LoginPage();
         loginPage.sendKeysUserLogin("admin123456");
         loginPage.sendKeysUserPassword("qwerty123456");
         loginPage.clickButtonLogin();
@@ -27,7 +42,13 @@ public class LoginTest extends BaseTest {
     @Test
     @DisplayName("Авторизация с логином и пустым паролем")
     public void loginTestWithLoginAndEmptyPassword() {
-        LoginPage loginPage = new LoginPage(driver);
+        HomePage homePage = new HomePage();
+        homePage.openSite();
+        homePage.closeBanner()
+                .closeCookie()
+                .clickPersonalLink();
+
+        LoginPage loginPage = new LoginPage();
         loginPage.sendKeysUserLogin("admin123456");
         loginPage.clickButtonLogin();
 
@@ -35,9 +56,15 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
-    @DisplayName("Авторизация с логином и паролем больше 6 символов")
+    @DisplayName("Авторизация без логина и паролем больше 6 символов")
     public void loginTestWithEmptyLoginAndPasswordMoreSixSymbols() {
-        LoginPage loginPage = new LoginPage(driver);
+        HomePage homePage = new HomePage();
+        homePage.openSite();
+        homePage.closeBanner()
+                .closeCookie()
+                .clickPersonalLink();
+
+        LoginPage loginPage = new LoginPage();
         loginPage.sendKeysUserPassword("qwerty123456");
         loginPage.clickButtonLogin();
 
@@ -47,7 +74,13 @@ public class LoginTest extends BaseTest {
     @Test
     @DisplayName("Авторизация с логином и паролем меньше 6 символов")
     public void loginTestWithFullLoginAndPasswordLessSixSymbols() {
-        LoginPage loginPage = new LoginPage(driver);
+        HomePage homePage = new HomePage();
+        homePage.openSite();
+        homePage.closeBanner()
+                .closeCookie()
+                .clickPersonalLink();
+
+        LoginPage loginPage = new LoginPage();
         loginPage.sendKeysUserLogin("admin123456");
         loginPage.sendKeysUserPassword(Passwords.generateRandomPassword(5));
         loginPage.clickButtonLogin();

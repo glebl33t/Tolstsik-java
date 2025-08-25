@@ -1,31 +1,22 @@
 package by.nsv;
 
+import by.nsv.pages.HomePage;
+import by.nsv.webdriver.WebDriver;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-
-import java.time.Duration;
 
 public class BaseTest {
-    protected WebDriver driver;
 
     @BeforeEach
-    public void setup() {
-        LoginPage loginPage = new LoginPage(driver);
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
-
-        HomePage homePage = new HomePage(driver);
+    public void openSiteAndCloseBannerAndCloseCookie() {
+        HomePage homePage = new HomePage();
         homePage.openSite();
-        homePage.clickCloseBanner();
-        homePage.clickAcceptCookie();
-        homePage.clickPersonalLink();
+        homePage.closeBanner();
+        homePage.closeCookie();
     }
 
     @AfterEach
     public void tearDown() {
-        driver.quit();
+        WebDriver.quit();
     }
 }

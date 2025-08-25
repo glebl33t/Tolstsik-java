@@ -1,8 +1,6 @@
-package by.nsv;
+package by.nsv.pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import by.nsv.webdriver.WebDriver;
 
 public class LoginPage {
     private final String USER_LOGIN = "//input[@id='USER_LOGIN_POPUP']";
@@ -12,41 +10,37 @@ public class LoginPage {
     private final String ERROR_AUTH = "//div[@class='alert alert-danger']/p";
     private final String ERROR_USER_PASSWROD = "//label[@id='USER_PASSWORD_POPUP-error']";
     private final String ERROR_USER_LOGIN = "//label[@id='USER_LOGIN_POPUP-error']";
-    private WebDriver driver;
+    private org.openqa.selenium.WebDriver driver;
 
-    LoginPage(WebDriver webDriver) {
-        driver = webDriver;
+    public LoginPage() {
+        driver = WebDriver.getDriver();
     }
 
     public void sendKeysUserLogin(String login) {
-        driver.findElement(By.xpath(USER_LOGIN)).sendKeys(login);
+        WebDriver.sandKeysToElement(USER_LOGIN, login);
     }
 
     public void sendKeysUserPassword(String password) {
-        driver.findElement(By.xpath(USER_PASSWORD)).sendKeys(password);
+        WebDriver.sandKeysToElement(USER_PASSWORD, password);
     }
 
     public void clickButtonLogin() {
-        driver.findElement(By.xpath(BUTTON_LOGIN)).click();
+        WebDriver.clickElement(BUTTON_LOGIN);
     }
 
     public String getTextHeaderFormTitle() {
-        WebElement textHeaderFormTitle = driver.findElement(By.xpath(HEAD_FORM_TITLE));
-        return textHeaderFormTitle.getText();
+        return WebDriver.getTextFromElement(HEAD_FORM_TITLE);
     }
 
     public String getTextErrorAuth() {
-        WebElement textErrorAuth = driver.findElement(By.xpath(ERROR_AUTH));
-        return textErrorAuth.getText();
+        return WebDriver.getTextFromElement(ERROR_AUTH);
     }
 
     public String getTextErrorPassword() {
-        WebElement textErrorPassword = driver.findElement(By.xpath(ERROR_USER_PASSWROD));
-        return textErrorPassword.getText();
+        return WebDriver.getTextFromElement(ERROR_USER_PASSWROD);
     }
 
     public String getTextErrorLogin() {
-        WebElement textErrorLogin = driver.findElement(By.xpath(ERROR_USER_LOGIN));
-        return textErrorLogin.getText();
+        return WebDriver.getTextFromElement(ERROR_USER_LOGIN);
     }
 }
